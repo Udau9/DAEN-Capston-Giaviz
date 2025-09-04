@@ -69,7 +69,7 @@ We are in **Phase 1: Dataset Discovery and Scoping**.
 ---
 
 ## 👥 Team Roles – *Data Fusion*
-- **Susanth Reddy Rachel** – Scrum Master  
+- **Sushanth Reddy Rachala** – Scrum Master  
   Guides team in Agile practices, facilitates meetings, and removes blockers.  
 - **Madhu Yamini Nainala** – Product Owner  
   Defines product vision, manages backlog, and prioritizes features.  
