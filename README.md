@@ -33,10 +33,7 @@ The project will be executed in four phases:
 2. **Data Processing & Fusion**  
    Clean, normalize, and unify spatial, temporal, and contextual information into a comprehensive data model.
 
-3. **Machine Learning & Computer Vision**  
-   Train models to detect incidents from video, predict alternate emergency routes, and forecast impacts on infrastructure.
-
-4. **Interactive 3D Visualization**  
+3. **Interactive 3D Visualization**  
    Use **GaiaViz** to overlay incidents, infrastructure, and predictive analytics in a single intuitive 3D interface.
 
 ---
@@ -44,9 +41,7 @@ The project will be executed in four phases:
 ## 📊 Key Data Sources
 - **Real-time (<10 min latency):**  
  VDOT SmarterRoads data, weather APIs, ADS-B flight tracking.  
-
-- **Non-real-time (historical/static):**  
-  GIS infrastructure maps, power outage archives, historical disaster datasets.  
+  
 
 ---
 
@@ -69,7 +64,7 @@ We are in **Phase 1: Dataset Discovery and Scoping**.
 ---
 
 ## 👥 Team Roles – *Data Fusion*
-- **Susanth Reddy Rachel** – Scrum Master  
+- **Sushanth Reddy Rachala** – Scrum Master  
   Guides team in Agile practices, facilitates meetings, and removes blockers.  
 - **Madhu Yamini Nainala** – Product Owner  
   Defines product vision, manages backlog, and prioritizes features.  
