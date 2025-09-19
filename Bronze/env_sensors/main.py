@@ -4,6 +4,10 @@ import pandas as pd
 from ingestion import ingest_data
 from validation import validate_data, VALIDATION_RULES
 
+# --- Configuration ---
+# Change this path to the directory where you want to save the output files
+BASE_OUTPUT_PATH = os.path.join(os.path.expanduser('~'), 'Downloads', 'data_pipeline_output')
+
 def run_pipeline():
     """
     Orchestrates the data pipeline: ingestion, validation, and saving.
@@ -17,14 +21,17 @@ def run_pipeline():
 
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     
+    # Define full paths using the base output path
+    bronze_path = os.path.join(BASE_OUTPUT_PATH, "bronze")
+    silver_path = os.path.join(BASE_OUTPUT_PATH, "silver")
+    quarantine_path = os.path.join(BASE_OUTPUT_PATH, "quarantine")
+
     # 1. Save the raw, unvalidated data to the Bronze layer
-    bronze_path = "bronze"
     os.makedirs(bronze_path, exist_ok=True)
     long_df.to_csv(os.path.join(bronze_path, f"raw_sensors_{timestamp}.csv"), index=False)
     print("✅ Raw, ingested data saved to Bronze folder.")
 
     # 2. Perform cleaning and standardization
-    # This step is already handled within the 'ingest_data' function, which produces the standardized 'long_df'
     print("\nStarting data cleaning and standardization...")
     print("✅ Data has been standardized into a long-format DataFrame.")
 
@@ -33,13 +40,10 @@ def run_pipeline():
     clean_df, quarantine_df = validate_data(long_df, VALIDATION_RULES)
     
     # 4. Save the clean and invalid data to their respective layers
-    silver_path = "silver"
-    quarantine_path = "quarantine"
     os.makedirs(silver_path, exist_ok=True)
     os.makedirs(quarantine_path, exist_ok=True)
     
     if not clean_df.empty:
-        # Save the final, cleaned data to the Silver layer
         clean_df.to_csv(os.path.join(silver_path, f"clean_sensors_{timestamp}.csv"), index=False)
         print("✅ Valid data saved to Silver CSV tables.")
     else:
